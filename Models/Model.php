@@ -7,7 +7,7 @@ abstract  class Model
     {
         try
         {
-            self::$_bdd = new PDO('','','');
+            self::$_bdd = new PDO('mysql:host=localhost;dbname=blog','root','');
             self::$_bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);
         }
         catch (Exception $ex)

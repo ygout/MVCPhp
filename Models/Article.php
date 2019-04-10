@@ -2,8 +2,6 @@
 
 class Article
 {
-    private $_id;
-
     /**
      * @return mixed
      */
@@ -88,6 +86,7 @@ class Article
         $this->_date = $date;
         return $this;
     }
+    private $_id;
     private $_title;
     private $_content;
     private $_date;

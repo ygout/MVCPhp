@@ -1,5 +1,5 @@
 <?php
-
+require_once ('Views/view.php');
 class HomeController
 {
     private $_articleManager;
@@ -7,18 +7,21 @@ class HomeController
 
     public function __construct($url)
     {
-        if(isset($url) && count($url)>1)
+        if(isset($url) && count($url) > 1)
         {
             throw new Exception('Page introuvable');
+        }else{
+            $this->indexAction();
         }
 
     }
 
-    public function Artilces()
+    private function indexAction()
     {
         $this->_articleManager = new ArticleManager();
         $articles = $this->_articleManager->getArticles();
 
-        require_once('views/homeView.php');
+        $this->_view = new View('Home');
+        $this->_view->generate(array('articles' => $articles));
     }
 }
